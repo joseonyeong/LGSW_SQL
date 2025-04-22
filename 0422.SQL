@@ -112,4 +112,9 @@ from student_math_score;
 
 -- 집계함수
 
--- case문, 조건문 (if문 대신 x)
+-- case문, 조건문 (if문 대신 x) https://learn.microsoft.com/ko-kr/sql/t-sql/language-elements/if-else-transact-sql?view=sql-server-ver16
+-- 값이 0보다 작다면 '환불거래' 0보다 크면 '정상거래'로 분류
+SELECT sales_amount, case when sales_amount < 0 then '환불거래'
+                        when sales_amount > 0 then '정상거래' 
+                    end as 적용결과 
+from sales;
